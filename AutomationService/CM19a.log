@@ -1,0 +1,16 @@
+Sun 09 Mar 2014 06:45:30, INFO, ---- Starting logging at: 2014-03-09_064530 ----
+Sun 09 Mar 2014 06:45:30, INFO, Cm19a opened and interface claimed
+Sun 09 Mar 2014 06:45:31, INFO, Sending A1 ON
+Sun 09 Mar 2014 06:45:31, INFO, Result A1 ON: True
+Sun 09 Mar 2014 06:45:35, INFO, ---- Starting logging at: 2014-03-09_064535 ----
+Sun 09 Mar 2014 06:45:35, INFO, Cm19a opened and interface claimed
+Sun 09 Mar 2014 06:45:36, INFO, Sending A1 OFF
+Sun 09 Mar 2014 06:45:36, INFO, Result A1 OFF: True
+Sun 09 Mar 2014 06:45:39, INFO, ---- Starting logging at: 2014-03-09_064539 ----
+Sun 09 Mar 2014 06:45:40, INFO, Cm19a opened and interface claimed
+Sun 09 Mar 2014 06:45:40, INFO, Sending A1 ON
+Sun 09 Mar 2014 06:45:40, INFO, Result A1 ON: True
+Sun 09 Mar 2014 06:45:43, INFO, ---- Starting logging at: 2014-03-09_064543 ----
+Sun 09 Mar 2014 06:45:43, INFO, Cm19a opened and interface claimed
+Sun 09 Mar 2014 06:45:44, INFO, Sending A1 OFF
+Sun 09 Mar 2014 06:45:44, INFO, Result A1 OFF: True
