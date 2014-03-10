@@ -1,13 +1,10 @@
 import web
 import json
+from index import Index
 
 from CM19aDriver import CM19aDevice
 
 REFRESH = 1.0               # Refresh rate (seconds) for polling the transceiver for inbound commands
-
-aFile = open('blah', 'r')
-route = '/' + aFile.read()
-print route
 
 jsonFile = open('house.json', 'r')
 jsonData = json.load(jsonFile)
@@ -16,9 +13,9 @@ route = jsonData["rooms"][0]["path"]
 print route
 
 urls = (
-  '/', 'index',
-  '/(.*?)', 'index',
-  '',  'index',
+  '/', 'Index',
+  '/(.*?)', 'Index',
+  '',  'Index',
   '/office/(on|off)', 'office',
   '/room', 'room_redirect',
   '/room/(.*?)', 'room',
@@ -26,26 +23,6 @@ urls = (
 
 app = web.application(urls, globals())
   
-class index:
-	def GET(self): #Dump a list of all rooms as JSON
-		print "User requested all rooms"
-		jsonFile = open('house.json', 'r')
-		rooms = json.load(jsonFile)
-		web.header('Content-Type', 'application/json')
-		return json.dumps(rooms)
-	def PUT(self, nameOfRoom): #Add the room and return 200 or some server error if room exists
-		print "User wants to add a room named " + nameOfRoom
-		jsonFile = open('house.json', 'r')
-		jsonData = json.load(jsonFile)
-		jsonFile.close()
-
-		jsonData["rooms"].append({"name":"Some Room","path":"/" + nameOfRoom})
-
-		with open("house.json", "w") as jsonFile:
-		    jsonFile.write(json.dumps(jsonData))
-
-	def DELETE(self, nameOfRoom): #Delete a room from the database
-		print "User wants to delete a room named " + nameOfRoom
 
 class room_redirect: #This is temporary
 	def GET(self):
