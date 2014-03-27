@@ -1,10 +1,11 @@
 import web
 import json
 
-class Index:
-	
-	def GET(self): #Dump a list of all rooms as JSON
-		jsonData = self.getFileJson();
+class Lights:
+
+	def GET(self):
+		jsonData = self.getFileJson()
+		lights = jsonData['lights']
 		web.header('Content-Type', 'application/json')
 		return json.dumps(jsonData)
 
@@ -13,18 +14,17 @@ class Index:
 		global app
 
 		jsonData = self.getFileJson()
-		rooms = jsonData["rooms"]
-		newRoom = json.loads(web.data());
-		rooms.append(newRoom)
+		lights = jsonData['lights']
+		newLight = json.loads(web.data())
+		lights.append(newLight)
 
 		self.writeFileJson(jsonData)
-		app.add_mapping(newRoom['path'], 'dynamic')
 
-	def DELETE(self, path): #Delete a room from the database
+	def DELETE(self, lightId): #Delete a room from the database
 		jsonData = self.getFileJson()
 		
-		updatedRooms = [room for room in jsonData["rooms"] if room["path"] != web.ctx.path]
-		jsonData["rooms"] = updatedRooms
+		updatedLights = [light for light in jsonData['lights'] if light['lightId'] != lightId]
+		jsonData['lights'] = updatedLights
 
 		self.writeFileJson(jsonData)
 

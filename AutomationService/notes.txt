@@ -1,0 +1,1 @@
+* Remember to put everything in the routes configuration ahead of Index, which will supersede all else.
