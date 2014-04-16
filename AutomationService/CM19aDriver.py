@@ -82,7 +82,7 @@ TTDs
 
 # *************** CONFIGURATION ***************
 
-LOGFILE = './cm19a.log'             # Path and filename for the logfile
+LOGFILE = '/tmp/cm19a.log'             # Path and filename for the logfile
 
 MODE = 'Command Line'              # Mode of operation: either 'Command Line', 'HTTP Server'
 #MODE = 'HTTP Server'
@@ -168,7 +168,7 @@ class CM19aDevice(threading.Thread):
 
     SEND_TIMEOUT = 1000             # 1000 ms = 1s
     RECEIVE_TIMEOUT = 100           # 100 ms
-    PROTOCOL_FILE = "./CM19aProtocol.ini"
+    PROTOCOL_FILE = "/var/www/lights/CM19aProtocol.ini"
 
     def __init__(self, refresh=1, loginstance=None, polling=False):
         # Initialise the object and create the device driver
@@ -189,7 +189,7 @@ class CM19aDevice(threading.Thread):
         else:
             # No logger instance provided so create one
             import logger
-            self.log = logger.start_logging("CM19a_X10_USB", "./CM19a.log")
+            self.log = logger.start_logging("CM19a_X10_USB", "/tmp/CM19a.log")
 
         # Find the correct USB device
         self.USB_device = USBdevice(self.VENDOR_ID, self.PRODUCT_ID)
